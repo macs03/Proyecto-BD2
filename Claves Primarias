@@ -1,0 +1,35 @@
+Claves prmarias:
+
+sds_formatos_fmo:pk fmo_codigo
+
+sds_localidades_lcd: pk lcd_codigo, fk ctr_ano_fiscal, fk ctr_id_centro, fk pso_codigo, fk edo_codigo
+
+sds_materiales_mtl: pk mtl_codigo, fk tml_codigo
+
+adminis: pk cedula
+
+asig_personal(relacional): pk (fmo_codigo, svo_codigo, infa_cedula)
+
+centro_costo: pk (ctr_ano_fiscal,ctr_id_centro)
+
+edificio:pk edo_codigo
+
+sds_status_etu: pk etu_codigo
+
+item: pk (fmo_codigo, svo_codigo, lcd_codi)
+
+sds_pisos_pso: pk pso_codigo
+
+sds_orde_prioridad_opa: pk opa_codigo
+
+sds_tipo_materiales_tml: pk tml_codigo
+
+sds_tipo_servicio_tso: pk tso_codigo, fk opa_codigo
+
+asig_material: pk(fmo_codigo, svo_codigo, mtl_codigo)
+
+personas: pk cedula
+
+servicio: pk servicio_codigo, fk tso_codigo
+
+item_historico: pk (svo_codigo, etu_codigo, fmo_codigo)
