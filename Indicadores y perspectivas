@@ -1,0 +1,64 @@
+Indicadores y Perspectivas:
+
+1.Tiempo promedio que una solicitud pasa en cada uno de los estados desde que es
+introducida por los diversos centros de costo hasta que es entregada por la dirección de
+servicios generales.
+
+Indicador: Tiempo promdedio.
+
+Perspectivas: Solicitudes(SDS_FORMATOS_FMO), estado(SDS_STATUS_ETU), tiempo.
+
+2.El personal de mantenimiento de servicios generales es capaz de realizar cualquier tarea
+se diría de forma coloquial son “toderos” pero el director necesita saber cuál es la
+tendencia y el desempeño histórico del personal de mantenimiento en las diferentes
+ramas atendidas construcción, plomería, electricidad, etc. (ver la cantidad de obras
+atendidas en el área sobre el total de obras realizadas como por citar un solo ejemplo)
+diseñe indicadores que le ayuden al director de servicios generales a visualiza el perfil de
+los trabajadores de servicios generales.
+
+Indicador: desempeño del personal en las diferentes ramas(obras atendidas en cada area 
+respecto a la cantidad total de obras).
+
+Perspectivas: Servicios(servicios.), Tipos de servicios(SDS_SERVICIOS_TSO), Solicitudes(SDS_FORMATOS_FMO), 
+"ITEM_HOSTORICOS".
+
+3.El manejo de inventario es otro punto mejorable dentro de la gestión por lo que interesa
+saber los máximos y mínimos de material utilizados en cada mes.
+
+Indicador: Cantidad de material usado cada mes.
+
+Perspectivas: Servicio, Material (SDS_MATERIALES_MTL), Solicitudes(SDS_FORMATOS_FMO)
+"item historicos"
+
+4.Nuestro director necesita saber si aumentando el personal es posible disminuir los
+tiempos de respuesta para ello necesita saber el porcentaje de ocupación del personal de
+servicios generales. Así como también la cantidad de proyectos que atienden
+simultáneamente.
+
+Indicador 1: Porcentaje de ocupacion del personal de servicios generales
+
+Perspectivas: Solicitudes(SDS_FORMATOS_EMO), Servicios, Estado(SDS_STATUS_ETU), tiempo
+"ASIG_PERSONAL", "ITEM_HISTORICO"
+
+
+Indicador 2: Cantidad de proyectos que se atienden simultaneamente
+
+Perspectivas: Solicitudes(SDS_FORMATOS_EMO), tiempo.
+"ITEM_HISTORICOS"
+
+5.Por cada localidad el tiempo que transcurre entre 2 fallos en sus 2 modalidades mismo
+tipo de falla o fallas de distinta índole.
+
+Indicador: tiempo que trasncurre entre 2 fallas.
+
+Perspectivas: Localidad, Solicitud, Servicio
+"ITEM"
+
+6.Porcentaje que representa cada centro de costo en el sistema de solicitudes de servicios
+generales.
+
+Indicador: Porcentaje de cada centro
+
+Perspectivas: centro de costo(SDS_CENTRO_COSTO), Solicitudes(SDS_FORMATOS_FMO)
+
+7. Qué tipo de fallas normalmente van asociadas.
