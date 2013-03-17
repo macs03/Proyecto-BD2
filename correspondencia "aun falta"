@@ -1,0 +1,12 @@
+Establecer correspondencia
+
+-El campo “FMO_FECHA”  de la tabla “SDS_FORMATO_FMO” se relaciona con la perspectiva “TIEMPO”
+-la tabla “sds_formato_fmo” se relaciona con la perspectiva “solicitudes”
+-la tabla “sds_status_etu” se relaciona con la perspectiva “estado”
+-La tabla “servicio” se relaciona con la perspectiva “servicios”
+-La tabla “ sds_tipo_servicios_tso” se relaciona con la perspectiva “tipo servicio”
+-la tabla “iten_historicos” se realciona con la perspectiva históricos
+-los campos “mtl_codigo” y “mtl_nombre” de la tabala “sds_materiales_mtl” se relaciona con la perspectiva materiales
+-la tabla “asig personal” se relaciona con la perspectiva “personal”
+-la tabla “sds_localidades_lcp” se relaciona con la perspectiva “localidad”
+-la tabla “edificio” se relaciona con la perspectiva “edificios”
