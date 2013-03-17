@@ -1,0 +1,56 @@
+CONFORMANDO INDICADORES
+
+“Tiempo promedio”
+Hechos : tiempo promedio
+Función de sumarización: avg
+Aclaración: el indicador tiempo promedio representa el tiempo promedio que tarda en pasar una solicitud de un estado a otro.
+ 
+“Obras atendidas”
+Hechos : cantidad de obras
+Función de sumarización: count
+Aclaración : el indicador “obras atendidas” representa la cantidad de obras atendidas en cada área por el personal de mantenimiento. 
+
+“Material usado”
+Hechos : material usado 
+Función de sumarización: SUM
+Aclaración: el indicador “material usado” representa la cantidad de material usado en las obras en cada mes .
+
+“porcentaje de ocupación”
+Hechos : proyectos realizados
+Función de sumarización: sum
+Aclaración: el indicador “porcentaje de ocupación” representa la cantidad el tiempo en que el personal está siendo ocupado.
+
+“proyectos simultáneos”
+Hechos : proyectos realizados
+Función de sumarización: sum
+
+Aclaración: el indicador “proyectos simultáneos” representa la cantidad de proyectos q están siendo atendidos simultáneamente por el personal se servicios generales
+
+“fallas”
+Hechos : fallas
+Función de sumarización: sum
+Aclaración: el indicador “fallas” representa el lugar fecha de una falla que se presente
+
+“porcentaje centros”
+Hechos : porcentajes centros
+Función de sumarización: count
+Aclaración: el indicador “porcentaje” representa el porcentaje de solicitudes que tiene cada centro 
+
+“tipo fallas”
+Hechos : fallas
+Función de sumarización: sum
+Aclaración: el indicador “tipo fallas” las fallas que se ven asociadas. 
+
+“solicitudes estado”
+Hechos : solicitudes estado
+Función de sumarización: sum
+Aclaración: el indicador  “solicitudes acción” representa el número de solicitudes q han sido rechazadas, atendidas o que están en espera.
+“falla comun”
+Hechos : fallas
+Función de sumarización: sum
+Aclaración: el indicador ”falla común” representa las fallas que son comunes en los edificios.
+
+“respuesta solicitud”
+Hechos : tiempo promedio
+Función de sumarización: sum
+Aclaración: el indicador “respuesta solicitud” representa el tiempo q dura una solicitud en ser procesada y dar una respuesta para ejecutar la obra.
