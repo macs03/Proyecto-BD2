@@ -1,0 +1,111 @@
+GRANULARIDAD
+
+Con respecto a la perspectiva “solicitudes” los datos disponibles son los siguientes:
+-FMO_CODIGO : es la clave primaria de la tabla SDS_FORMATOS_FMO
+-JEF_INFA_NACIONALIDAD :  indica la nacionalidad
+-JEF_INFA_CEDULA : indica el número de cedula
+-JEF_INFA_CTR_ID_CENTRO : indica el centro donde se realizó la solicitud
+-JEF_INFA_CTR_ANO_FISCAL : indica el año fiscal en que se realizó la solicitud
+-FMO_FECHA" DATE "DD/MM/RR : indica la fecha en que se hiso la solicitud
+-JEF_FECHA_INI" DATE "DD/MM/RR : indica la fecha en que se le dio inicio a la solicitud
+
+
+Con respecto a la perspectiva estado los datos disponibles son los siguientes:
+-ETU_CODIGO : indica la clave primaria de la tabla SDS_ESTATUS_ETU
+-ETU_NOMBRE: indica el nombre del estado en q se encuentra la solicitud 
+-ETU_DESCRIPCION: indica la descripción del estado
+
+Con respecto a la perspectiva servicio los datos disponibles son los siguientes:
+-SVO_CODIGO : indica la clave primaria de la tabla SERVICIO
+-TSO_CODIGO : indica a travez de ujna clave foránea el código del tipo de servicio
+-SVO_NOMBRE : indica el nombre del servicio
+-SVO_DESCRIPCION : indica la descripción del servicio
+
+
+
+Con respecto a la perspectiva tipo servicio los datos disponibles son:
+
+-TSO_CODIGO: indica el código del tipo de servicio  
+-OPA_CODIGO : indica el código del orden de prioridad del tipo de servicio
+-TSO_NOMBRE: indica el nombre del tipo de servicio 
+-TSO_DESCRIPCION: indica la descripción del tipo de servicio
+
+
+Con respecto a la perspectiva materiales los datos disponibles son:
+-MTL_CODIGO: indica la clave primaria de la tabla SDS_MATERIALES_MTL
+-TML_CODIGO: clave foránea que indica el código del tipo de material
+-MTL_NOMBRE: indica el nombre del material
+-MTL_CANTIDAD: indica la cantidad de material
+
+
+Con respecto a la perspectiva localidad los datos disponibles son:
+
+LCD_CODIGO: indica la clave primaria de la tabla SDS_LOCALIDADES_LCD
+CTR_ANO_FISCAL : indica con una clave foránea el año fiscal
+CTR_ID_CENTRO: indica con una clave foránea el identificador del centro
+PSO_CODIGO : indica con una clave foránea el código del piso
+EDO_CODIGO : indica con una clave foránea el código edificio
+LCD_NOMBRE: indica el nombre de la localidad
+
+
+Con respecto a la perspectiva edificio los datos disponibles son:
+
+-EDO_CODIGO: indica la clave primaria de la tabla EDIFICIO
+-EDO_NOMBRE: indica el nombre del edificio
+
+Con respecto a la perspectiva tiempo los datos comunes son:
+
+-dia
+-mes
+-año
+
+
+
+Una vez recolectados los datos los resultados fueron los siguientes:
+
+.-perspectiva solicitudes:
+
+“FMO_CODIGO” de la tabla SDS_FORMATOS_FMO ya q hace referencia al código de la solicitud.
+.- perspectiva estado:
+“ETU_CODIGO” de la tabla SDS_ESTATUS_ETU q hace referencia al código del estado en q se encuentra la solicitud.
+“ETU_NOMBRE” de la tabla SDS_ESTATUS_ETU que hace referencia al nombre del estado en q se encuentra la solicitud.
+.- perspectiva servicio
+
+“SVO_CODIGO” de la tabla SERVICIO que hace referencia al código del servicio
+
+“SVO_NOMBRE” de la tabla SERVICIO que hace referencia al nombre del servicio
+
+
+.- perspectiva tipo servicio
+
+“TSO_CODIGO” de la tabla  SDS_TIPO_SERVICIOS TSO que hace referencia al código del tipo de servicio.
+
+“TSO_NOMBRE” de la tabla SDS_TIPO_SERVICIOS TSO que hace referencia al nombre del tipo de servicio
+
+.- perspectiva materiales
+
+“MTL_CODIGO”  de la tabla SDS_MATERIALES_MTL que hace referencia al código del material
+
+“MTL_NOMBRE” de la tabla SDS_MATERIALES_MTL que hace referencia al nombre del material.
+
+
+.- perspectiva localidad
+
+“LCD_CODIGO” de la tabla SDS_LOCALIDADES_LCD que hace referencia al código de la localidad.
+
+“LCD_NOMBRE” de la tabla SDS_LOCALIDADES_LCD que hace referencia al nombre de la localidad.
+
+
+
+.- perspectiva edificio
+
+“EDO_CODIGO” de la tabla EDIFICIO  que hace referencia al código del edificio.
+
+“EDO_NOMBRE” de la tabla EDIFICIO que hace referencia al nombre del edificio.
+
+
+.-Perspectiva tiempo
+
+-“dia”
+-“mes”
+-“año” 
