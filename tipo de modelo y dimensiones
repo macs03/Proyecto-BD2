@@ -1,0 +1,53 @@
+tipo de modelo y dimensiones
+
+Tipo de modelo logico del DW
+
+	Se utilizara un esquema estrella debido a su simpleza y facil entendimiento y facil desarrollo
+
+Tablas de Dimensiones
+
+1. Perspectiva solicitud de la tabla SDS_FORMATOS_FMO
+sera una nueva tabla de dimensiones se llamara D_solicitudes 
+se le agregara una clave principal con el nombre id_d_solicitudes
+el campo FMO_CODIGO tendra el mismo nombre
+
+2. Perspectiva estado de la tabla SDS_STATUS_ETU 	
+se llamara como D_estado
+se le agregara una clave principal con el nombre id_d_estado
+el campo ETU_CODIGO se mantendra con el mismo nombre
+
+3. Perspectiva servicio de la tabla Servicio
+se le llamara D_servicio
+se le asignara una clave principal con el nombre id_d_servicio
+el campo SVO_CODIGO conservara el mismo nombre
+
+4. Perspectiva tipos de servicio de la tabla SDS_SERVICIOS_TSO
+se le llamara d_tipo_servicios
+se crea una clave principal id_d_tipo_servicios
+y el campo TSO_CODIGO mantendra el mismo nombre
+
+5. Perspectiva material de la tabla SDS_MATERIALES_MTL
+la llamaremos d_material
+se le asigna una clave principal id_material
+el campo MTL_CODIGO mantendra el mismo nombre
+
+6. Perspectiva localidad de la tabla SDS_LOCALIDADES_LCD
+se le llamara D_localidades
+se le asignara una clave principal id_localidad
+el campo LCD_CODIGO se mantendra con el mismo nombre
+
+7. Perspectiva centro de costos de la tabla SDS_CENTRO_COSTOS
+se le llamara D_CENTRO
+se le asignara una clave principal id_centro
+el campo CTR_ANO_FISCAL y CTR_ID_CENTRO se llamaran igual
+
+8. Perspectiva Edificio de la tabla Edificio
+se llamara D_edificio
+se asignara una clave principal con el nobre id_edificio
+el campo EDO_CODIGO se llamara igual
+
+9. Dimension y perspectiva tiempo conformada por varias tablas
+se le llamara Tiempo
+se crea una clave principal llamada id_tiempo
+el campo FMO_FECHA se llamara igual
+el campo HIS_FECHA_INICIO y HIS_FECHA_FIN se llamaran igual
