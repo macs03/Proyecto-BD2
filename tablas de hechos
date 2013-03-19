@@ -1,7 +1,7 @@
 tablas de hechos
 
 1. tabla de hechos para Tiempo promdedio. y Cantidad de solicitudes atendidas, rechazadas y en espera.
-- la tabla de hechis tendra el nombre de tiempo_cant_estado
+- la tabla de hechios tendra el nombre de tiempo_cant_estado
 - su clave principal sera la combinacion de las claves princpales de las tablas dimensiones id_d_solicitudes, id_d_estado y id tiempo
 - se crearan dos hechos que corresponden con los indicadores y seran tiempo promedio por tiem_prom y cantidad de solicitudes mensuales por cant_sol
 
