@@ -1,0 +1,48 @@
+tablas de hechos
+
+1. tabla de hechos para Tiempo promdedio. y Cantidad de solicitudes atendidas, rechazadas y en espera.
+- la tabla de hechis tendra el nombre de tiempo_cant_estado
+- su clave principal sera la combinacion de las claves princpales de las tablas dimensiones id_d_solicitudes, id_d_estado y id tiempo
+- se crearan dos hechos que corresponden con los indicadores y seran tiempo promedio por tiem_prom y cantidad de solicitudes mensuales por cant_sol
+
+2. Tabla de hechos para desempeño del personal en las diferentes ramos
+- la tabla de hechos se llaman desem_perso
+- su clave primaria sera la combinacion entre id_d_servicios, id_d_solicitudes y id_d_tipo_servicios
+- se crearan el hecho obras_atem por desemèño del personal.
+
+3. tabla de hechos para cantidad de material usado cada mes
+- la tabla se denominara can_materiales_mes
+- la clave primaria sera combinar id_d_servicios, id_d_solicitudes y id_materiales
+- se creara el hecho que sustituye a cantidad de materiales cada mes por cantidad
+
+4. porcentaje de ocuapacion del personal de servicios generales
+- la tabla se llamara porcentaje_ocupacion
+- la clave primaria esta compuesta por la combinacion id_d_solicitudes, id_d_servicios, id_d_estado y id_tiempo
+- se crearan los hechos que sustituiran a porcentaje de ocupacion por porcentaje
+
+5. tabala de hechos de tiempo que transcurre entre 2 fallas
+- la tabla se llamara tiempo_fallas
+- la clave es la combinacion entre id_localidad, id_d_solicitudes y id_d_servicios
+- se crea el hecho que sustituye a tiempo entre 2 fallas por dif_tiempo.
+
+6.tabla de porcentaje que representa cada centro en el sistema de servicios generales
+- la tabla se llamara por_centro
+- la clave es combinada entre id_d_solicitudes y id_centro
+- el hecho que sustituye a porcentaje por cejtro se llamara porce
+
+7. ???¿¿¿
+
+8. tabla de hechos para diferencia entre material y personas estimado y el usado
+- la tabla se llamara recursos
+- la clave sera id_d_solicitudes y id_d_servicio
+- los hechos que sustituyen a diferencia en material estimado y material usado y personal estimado y perosnal usado se llamara material y personal
+ 
+10. taba de hechos para fallas mas comunes entre edificios
+- la llamaremos fallas
+- la clave sera la combinacion de id_edificio, id_localidades, id_d_servicios, id_d_solicitudes
+- el hecho que sustituira numero de fallas por edificio se llamara fallas_e
+
+11. tabla de hechos por diferencia de la fecha en la que se hace la solicitud y la fecha en que se atiende
+- la tabla se llamara tiempo_solicitud
+- la clave primaria sera la combinacion de id_centro, id_d_solicitudes
+- el hecho para sustituir diferencias de tiempo es maximo y minomo 
