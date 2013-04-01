@@ -1,0 +1,405 @@
+CREATE TABLE Tiempo (
+  id_Tiempo NUMERIC NOT NULL ,
+  fecha DATE NULL,
+  dia NUMERIC NULL,
+  mes NUMERIC NULL,
+  año NUMERIC NULL,
+  his_fecha_inicio DATE NULL,
+  his_fecha_fin DATE NULL,
+  PRIMARY KEY(id_Tiempo)
+);
+
+
+
+CREATE SEQUENCE "SEQ_D_TIEMPO"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+
+
+create or replace
+procedure llenar_tiempo
+is
+cursor ti is (select distinct
+
+his_fecha_inicio fec,
+to_number(to_char(his_fecha_inicio,'dd'))diames,
+to_number(to_char(his_fecha_inicio,'mm'))mes,
+to_number(to_char(his_fecha_inicio,'yyyy'))año,
+his_fecha_inicio f_ini,
+his_fecha_fin f_fin
+
+from items_historicos);
+
+begin
+
+for recor in ti loop
+INSERT INTO tiempo values (SEQ_D_TIEMPO.NEXTVAL,recor.fec,recor.diames,recor.mes,recor.año,recor.f_ini,recor.f_fin);
+end loop;
+
+end llenar_tiempo;
+
+
+
+CREATE TABLE D_solicitud (
+  id_D_solicitud NUMERIC NOT NULL ,
+  FMO_codigo NUMERIC NULL,
+  PRIMARY KEY(id_D_solicitud)
+);
+
+
+CREATE SEQUENCE "SEQ_D_SOLICITUD"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+
+create or replace
+procedure llenar_D_SOLICITUD
+is
+cursor rec is (select fmo_codigo
+ 
+from sds_formatos_fmo);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_SOLICITUD values ( SEQ_D_SOLICITUD.NEXTVAL, recor.fmo_codigo);
+end loop;
+
+end llenar_D_SOLICITUD;
+
+
+
+CREATE TABLE D_tipo_servicio (
+  id_D_tipo_servicio NUMERIC NOT NULL ,
+  TSO_codigo NUMERIC NULL,
+  TSO_nombre VARCHAR(20) NULL,
+  PRIMARY KEY(id_D_tipo_servicio)
+);
+
+
+CREATE SEQUENCE "SEQ_D_TIPO_SERVICIO"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+
+create or replace
+procedure llenar_D_TIPO_SERVICIO
+is
+cursor rec is (select tso_codigo,tso_nombre
+ 
+from sds_tipo_servicios_tso );
+
+begin
+
+for recor in rec loop
+INSERT INTO D_TIPO_SERVICIO values ( SEQ_D_TIPO_SERVICIO.NEXTVAL, recor.tso_codigo,recor.tso_nombre);
+end loop;
+
+end llenar_D_TIPO_SERVICIO;
+
+
+CREATE TABLE D_servicio (
+  id_D_servicio NUMERIC NOT NULL ,
+  SVO_codigo NUMERIC NULL,
+  SVO_nombre VARCHAR(30) NULL,
+  PRIMARY KEY(id_D_servicio)
+);
+
+CREATE SEQUENCE "SEQ_D_SERVICIO"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+
+create or replace
+procedure llenar_D_SERVICIO
+is
+cursor rec is (select svo_codigo, svo_nombre
+ 
+from servicios);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_SERVICIO values ( SEQ_D_SERVICIO.NEXTVAL, recor.svo_codigo,recor.svo_nombre);
+end loop;
+
+end llenar_D_SERVICIO;
+
+CREATE TABLE D_centro (
+  id_D_centro NUMERIC NOT NULL ,
+  EDO_codigo NUMERIC NULL,
+  PRIMARY KEY(id_D_centro)
+);
+
+CREATE SEQUENCE "SEQ_D_CENTRO"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+create or replace
+procedure llenar_D_centro
+is
+cursor rec is (select e.edo_codigo
+ 
+from edificio e);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_CENTRO values ( SEQ_D_CENTRO.nextval, recor.edo_codigo);
+end loop;
+
+end llenar_D_centro;
+
+
+CREATE TABLE D_estado (
+  id_D_estado NUMERIC NOT NULL ,
+  ETU_codigo VARCHAR(10) NULL,
+  ETU_nombre VARCHAR(20) NULL,
+  PRIMARY KEY(id_D_estado)
+);
+
+CREATE SEQUENCE "SEQ_D_ESTADO"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+create or replace
+procedure llenar_D_ESTADO
+is
+cursor rec is (select etu_codigo,etu_nombre
+ 
+from sds_estatus_etu);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_estado values ( SEQ_D_ESTADO.nextval, recor.etu_codigo,recor.etu_nombre);
+end loop;
+
+end llenar_D_ESTADO;
+
+
+
+CREATE TABLE D_localidades (
+  id_D_localidades numeric NOT NULL ,
+  LCD_codigo NUMERIC NULL,
+  LCD_nombre VARCHAR(20) NULL,
+  PRIMARY KEY(id_D_localidades)
+);
+
+CREATE SEQUENCE "SEQ_D_LOCALIDADES"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+create or replace
+procedure llenar_D_LOCALIDADES
+is
+cursor rec is (select lcd_codigo,lcd_nombre
+ 
+from sds_localidades_lcd);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_LOCALIDADES values ( SEQ_D_localidades.nextval, recor.lcd_codigo,recor.lcd_nombre);
+end loop;
+
+end llenar_D_LOCALIDADES;
+
+
+
+
+CREATE TABLE D_material (
+  id_D_material numeric NOT NULL ,
+  MTL_codigo NUMERIC NULL,
+  MTL_nombre VARCHAR(20) NULL,
+  PRIMARY KEY(id_D_material)
+);
+
+CREATE SEQUENCE "SEQ_D_MATERIAL"
+MINVALUE 0 
+MAXVALUE 99999 
+INCREMENT BY 1 
+START 
+WITH 0 
+CACHE 20 
+NOORDER 
+NOCYCLE;
+
+create or replace
+procedure llenar_D_MATERIAL
+is
+cursor rec is (select mtl_codigo,mtl_nombre
+ 
+from sds_materiales_mtl);
+
+begin
+
+for recor in rec loop
+INSERT INTO D_MATERIAL values ( SEQ_D_MATERIAL.nextval, recor.mtl_codigo,recor.mtl_nombre);
+end loop;
+
+end llenar_D_MATERIAL;
+
+
+
+CREATE TABLE porcentaje_centro (
+  id_porcentaje_centro NUMERIC NOT NULL ,
+  id_D_centro number NOT NULL,
+  id_D_solicitud number NOT NULL,
+  porcemtaje number NULL,
+  PRIMARY KEY(id_porcentaje_centro),
+
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+     
+  FOREIGN KEY(id_D_centro)
+    REFERENCES D_centro(id_D_centro)
+     
+);
+
+
+CREATE TABLE cant_material_mes (
+  id_cant_material_mes NUMERIC NOT NULL ,
+  id_D_servicio NUMERIC NOT NULL,
+  id_D_solicitud NUMERIC NOT NULL,
+  id_D_material numeric  NOT NULL,
+  cantidad NUMERIC not NULL,
+  PRIMARY KEY(id_cant_material_mes),
+  
+  FOREIGN KEY(id_D_material)
+    REFERENCES D_material(id_D_material),
+     
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+     
+  FOREIGN KEY(id_D_servicio)
+    REFERENCES D_servicio(id_D_servicio)
+      
+);
+
+
+
+CREATE TABLE tiempo_falla (
+  idtiempo_falla numeric NOT NULL ,
+  id_D_servicio NUMERIC NOT NULL,
+  id_D_solicitud NUMERIC NOT NULL,
+  id_D_localidades NUMERIC NOT NULL,
+  dif_tiempo NUMERIC NULL,
+  PRIMARY KEY(idtiempo_falla),
+
+  FOREIGN KEY(id_D_localidades)
+    REFERENCES D_localidades(id_D_localidades),
+      
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+      
+  FOREIGN KEY(id_D_servicio)
+    REFERENCES D_servicio(id_D_servicio)
+     
+);
+
+
+CREATE TABLE desempeño_personal (
+  id_des_per NUMERIC NOT NULL ,
+  id_D_tipo_servicio NUMERIC NOT NULL,
+  id_D_servicio NUMERIC NOT NULL,
+  id_D_solicitud NUMERIC NOT NULL,
+  obras_atendidas NUMERIC NULL,
+  PRIMARY KEY(id_des_per),
+  
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+     
+  FOREIGN KEY(id_D_servicio)
+    REFERENCES D_servicio(id_D_servicio),
+    
+  FOREIGN KEY(id_D_tipo_servicio)
+    REFERENCES D_tipo_servicio(id_D_tipo_servicio)
+     
+);
+
+CREATE TABLE porcentaje_ocupacion (
+  idporcentaje_ocupacion NUMERIC NOT NULL ,
+  id_D_estado NUMERIC NOT NULL,
+  id_D_servicio NUMERIC NOT NULL,
+  id_D_solicitud NUMERIC NOT NULL,
+  porcentaje NUMERIC NULL,
+  PRIMARY KEY(idporcentaje_ocupacion),
+  
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+      
+  FOREIGN KEY(id_D_servicio)
+    REFERENCES D_servicio(id_D_servicio),
+      
+  FOREIGN KEY(id_D_estado)
+    REFERENCES D_estado(id_D_estado)
+     
+);
+
+CREATE TABLE tiempo_cantidad_estado (
+  idtiempo_cantidad_estado NUMERIC NOT NULL ,
+  id_Tiempo NUMERIC NOT NULL,
+  id_D_servicio NUMERIC NOT NULL,
+  id_D_estado NUMERIC NOT NULL,
+  id_D_solicitud NUMERIC NOT NULL,
+  tiempo_prom NUMERIC NULL,
+  cant_sol NUMERIC NULL,
+  PRIMARY KEY(idtiempo_cantidad_estado),
+ 
+  FOREIGN KEY(id_D_solicitud)
+    REFERENCES D_solicitud(id_D_solicitud),
+     
+  FOREIGN KEY(id_D_estado)
+    REFERENCES D_estado(id_D_estado),
+     
+  FOREIGN KEY(id_D_servicio)
+    REFERENCES D_servicio(id_D_servicio),
+      
+  FOREIGN KEY(id_Tiempo)
+    REFERENCES Tiempo(id_Tiempo)
+      
+);
